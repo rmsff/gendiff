@@ -1,0 +1,46 @@
+{
+  "name": "dc",
+  "version": "1.0.0",
+  "description": "Difference calculator",
+  "bin": {
+    "gendiff": "dist/bin/gendiff.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
+    "eslint": "eslint --ignore-path.gitignore."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serikoff/project-lvl2-s475.git"
+  },
+  "keywords": [
+    "difference",
+    "calculator"
+  ],
+  "author": "serikoff",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/serikoff/project-lvl2-s475/issues"
+  },
+  "homepage": "https://github.com/serikoff/project-lvl2-s475#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "readline-sync": "^1.4.9"
+  }
+}
