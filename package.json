@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/serikoff/project-lvl2-s475#readme",
   "dependencies": {
-    "readline-sync": "^1.4.9"
+    "commander": "^2.20.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
