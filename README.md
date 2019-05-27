@@ -9,21 +9,21 @@ This repository is created and maintained by a student of the Hexlet educational
 
 # Difference calculator
 
-<a href="https://codeclimate.com/github/serikoff/project-lvl1-s475/maintainability"><img src="https://api.codeclimate.com/v1/badges/0844630e37ddc03449e7/maintainability" /></a>
-[![Build Status](https://travis-ci.org/serikoff/project-lvl1-s475.svg?branch=master)](https://travis-ci.org/serikoff/project-lvl1-s475)
+<a href="https://codeclimate.com/github/serikoff/project-lvl2-s475/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9c52808aa4310e5db39/maintainability" /></a>
 
+[![Build Status](https://travis-ci.org/serikoff/project-lvl2-s475.svg?branch=master)](https://travis-ci.org/serikoff/project-lvl2-s475)
 
 [![asciicast](https://asciinema.org/a/Sbx6g1k1cr1AtvIKjxQRQyvQd.png)](https://asciinema.org/a/Sbx6g1k1cr1AtvIKjxQRQyvQd)
 
 ## Setup
 
 ```sh
-$ sudo npm install -g *******@serikoff/dc
+$ npm install
 ```
 
 ## If you are using Linux and you have the error 
 ```sh
-$ brain-games
+$ gendiff
 /usr/bin/env: 'node': No such file or directory
 ```
 then enter the command 
