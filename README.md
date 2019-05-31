@@ -23,6 +23,9 @@ step 3
 
 [![asciicast](https://asciinema.org/a/Hijdg8YQtV6eHmeK7v8HvVJii.png)](https://asciinema.org/a/Hijdg8YQtV6eHmeK7v8HvVJii)
 
+step 4
+
+[![asciicast](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq.png)](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq)
 
 ## Setup
 

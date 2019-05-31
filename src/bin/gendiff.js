@@ -7,7 +7,7 @@ import parsers from '../parsers';
 
 function getFile(fileLocation) {
   const pathExtname = path.extname(fileLocation);
-  const file = fs.readFileSync(fileLocation);
+  const file = fs.readFileSync(fileLocation, 'utf-8');
   return parsers(file, pathExtname);
 }
 
