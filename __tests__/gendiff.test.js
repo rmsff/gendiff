@@ -4,3 +4,7 @@ const result = '{\n    host: hexlet.io\n  + timeout: 20\n  - timeout: 50\n  - pr
 test('getDiff', () => {
   expect(getDiff('before.json', 'after.json')).toBe(result);
 });
+
+test('getDiff', () => {
+  expect(getDiff('before.yml', 'after.yml')).toBe(result);
+});

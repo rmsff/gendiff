@@ -4,3 +4,6 @@
 tempCodeRunnerFile.javascript
 before.json
 after.json
+before.yml
+after.yml
+/__tests__/

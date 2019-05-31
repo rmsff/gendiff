@@ -2,10 +2,13 @@
 import program from 'commander';
 import fs from 'fs';
 import lodash from 'lodash';
+import path from 'path';
+import parsers from '../parsers';
 
 function getFile(fileLocation) {
+  const pathExtname = path.extname(fileLocation);
   const file = fs.readFileSync(fileLocation);
-  return JSON.parse(file);
+  return parsers(file, pathExtname);
 }
 
 export default function getDiff(firstConfig, secondConfig) {
@@ -26,6 +29,7 @@ export default function getDiff(firstConfig, secondConfig) {
   }, '');
 
   console.log(`{\n${difference}}`);
+  return `{\n${difference}}`;
 }
 
 program
