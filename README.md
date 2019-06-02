@@ -27,6 +27,11 @@ step 4
 
 [![asciicast](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq.png)](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq)
 
+step 5 
+
+[![asciicast](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl.png)](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl)
+
+
 ## Setup
 
 ```sh

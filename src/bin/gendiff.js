@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import program from 'commander';
 import fs from 'fs';
-import lodash from 'lodash';
 import path from 'path';
 import parsers from '../parsers';
+import getAST from '../AST';
+import toString from '../AST-render';
 
 function getFile(fileLocation) {
   const pathExtname = path.extname(fileLocation);
@@ -12,24 +13,11 @@ function getFile(fileLocation) {
 }
 
 export default function getDiff(firstConfig, secondConfig) {
-  const before = getFile(firstConfig);
-  const after = getFile(secondConfig);
-  const properties = lodash.uniq(Object.keys(before).concat(Object.keys(after)), el => el.id);
+  const AST = getAST(getFile(firstConfig), getFile(secondConfig));
+  const result = toString(AST);
 
-  const difference = properties.reduce((acc, key) => {
-    const isPropertyBefore = lodash.has(before, key);
-    const isPropertyAfter = lodash.has(after, key);
-
-    if (isPropertyBefore && isPropertyAfter) {
-      return before[key] === after[key] ? `${acc}    ${key}: ${after[key]}\n`
-        : `${acc}  + ${key}: ${after[key]}\n  - ${key}: ${before[key]}\n`;
-    }
-    return isPropertyBefore ? `${acc}  - ${key}: ${before[key]}\n`
-      : `${acc}  + ${key}: ${after[key]}\n`;
-  }, '');
-
-  console.log(`{\n${difference}}`);
-  return `{\n${difference}}`;
+  console.log(`{\n${result}\n}`);
+  return `{\n${result}\n}`;
 }
 
 program
