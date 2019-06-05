@@ -1,7 +1,7 @@
 
 import lodash from 'lodash';
 
-const getAST = (firstFile, secondFile) => {
+const buildAST = (firstFile, secondFile) => {
   const keys = lodash.uniq([...Object.keys(firstFile), ...(Object.keys(secondFile))], el => el.id);
 
   const AST = keys.reduce((acc, key) => {
@@ -14,11 +14,11 @@ const getAST = (firstFile, secondFile) => {
 
     if (isKeyFirst && isKeySecond) {
       if (isChildrenFirst && isChildrenSecond) {
-        return { ...acc, [key]: { children: getAST(valueFirst, valueSecond) } };
+        return { ...acc, [key]: { children: buildAST(valueFirst, valueSecond) } };
       }
       return valueFirst === valueSecond
         ? { ...acc, [key]: { value: valueFirst, status: 'current' } }
-        : { ...acc, [key]: { value: { before: valueFirst, after: valueSecond }, status: 'change' } };
+        : { ...acc, [key]: { value: { before: valueFirst, after: valueSecond }, status: 'update' } };
     }
 
     return !isKeyFirst && isKeySecond
@@ -29,4 +29,4 @@ const getAST = (firstFile, secondFile) => {
   return AST;
 };
 
-export default getAST;
+export default buildAST;

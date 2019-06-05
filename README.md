@@ -31,8 +31,14 @@ step 5
 
 [![asciicast](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl.png)](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl)
 
+step 6 
+
+[![asciicast](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO.png)](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO)
+
 
 ## Setup
+
+clone git and npm install
 
 ```sh
 $ npm install

@@ -1,6 +1,4 @@
-import lodash from 'lodash';
-
-const render = (ast) => {
+export default (ast) => {
   const getIndent = depth => '  '.repeat(depth);
 
   const stringify = (value, depth) => {
@@ -16,7 +14,7 @@ const render = (ast) => {
       add: () => `+ ${key}: ${stringify(value, depth)}`,
       remove: () => `- ${key}: ${stringify(value, depth)}`,
       current: () => `  ${key}: ${stringify(value, depth)}`,
-      change: () => `- ${key}: ${stringify(value.before, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(value.after, depth)}`,
+      update: () => `- ${key}: ${stringify(value.before, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(value.after, depth)}`,
     };
     return line[status]();
   };
@@ -24,11 +22,9 @@ const render = (ast) => {
   const getResult = (nodes, depth = 1) => Object.keys(nodes).map((key) => {
     const { children, value, status } = nodes[key];
     return children
-      ? `${getIndent(depth + 1)}${key}: {\n${lodash.flatten(getResult(children, depth + 2)).join('\n')}\n${getIndent(depth + 1)}}`
+      ? `${getIndent(depth + 1)}${key}: {\n${getResult(children, depth + 2).join('\n')}\n${getIndent(depth + 1)}}`
       : `${getIndent(depth)}${getLine(key, value, depth, status)}`;
   });
 
-  return (lodash.flatten(getResult(ast))).join('\n');
+  return `{\n${(getResult(ast)).join('\n')}\n}`;
 };
-
-export default render;
