@@ -7,6 +7,5 @@ export default (file, pathExtname) => {
     '.yml': f => yaml.safeLoad(f),
     '.ini': f => ini.parse(f),
   };
-
   return parserSelection[pathExtname](file);
 };

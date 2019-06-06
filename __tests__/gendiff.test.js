@@ -2,8 +2,9 @@ import fs from 'fs';
 import genDiff from '../src/index';
 
 const location = '__tests__/__fixtures__/';
-const expectedRecursive = fs.readFileSync(`${location}expectedRecursive.txt`, 'utf-8');
+const expectedDiff = fs.readFileSync(`${location}expectedDiff.txt`, 'utf-8');
 const expectedPlain = fs.readFileSync(`${location}expectedPlain.txt`, 'utf-8');
+const expectedJson = fs.readFileSync(`${location}expectedJson.txt`, 'utf-8');
 
 test.each([
   [`${location}before.json`, `${location}after.json`],
@@ -12,7 +13,8 @@ test.each([
 ])(
   '.add(%s, %s)',
   (a, b) => {
-    expect(genDiff(a, b, 'recursive')).toBe(expectedRecursive);
+    expect(genDiff(a, b, 'diff')).toBe(expectedDiff);
     expect(genDiff(a, b, 'plain')).toBe(expectedPlain);
+    expect(genDiff(a, b, 'json')).toBe(expectedJson);
   },
 );

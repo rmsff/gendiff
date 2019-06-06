@@ -2,7 +2,7 @@
 import lodash from 'lodash';
 
 const buildAST = (firstFile, secondFile) => {
-  const keys = lodash.uniq([...Object.keys(firstFile), ...(Object.keys(secondFile))], el => el.id);
+  const keys = lodash.uniq(Object.keys(firstFile).concat(Object.keys(secondFile)), el => el.id);
 
   const AST = keys.reduce((acc, key) => {
     const isKeyFirst = lodash.has(firstFile, key);

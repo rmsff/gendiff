@@ -13,6 +13,5 @@ function getFile(fileLocation) {
 export default function (firstConfig, secondConfig, type) {
   const AST = buildAST(getFile(firstConfig), getFile(secondConfig));
   const result = toString(AST, type);
-
   return result;
 }

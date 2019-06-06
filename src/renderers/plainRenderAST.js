@@ -13,13 +13,11 @@ export default (ast) => {
       remove: () => `Property '${local}' was removed`,
       update: () => `Property '${local}' was updated. From ${stringify(value.before)} to ${stringify(value.after)}`,
     };
-
     return line[status]();
   };
 
   const getResult = (nodes, local = []) => Object.keys(nodes).reduce((acc, key) => {
     const { children, value, status } = nodes[key];
-
     if (status === 'current') return acc;
     return children
       ? [...acc, getResult(children, [...local, key])]

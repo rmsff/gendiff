@@ -35,6 +35,11 @@ step 6
 
 [![asciicast](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO.png)](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO)
 
+step 7
+
+[![asciicast](https://asciinema.org/a/3g6lAThyFivGXIv7shjheVDt1.png)](https://asciinema.org/a/3g6lAThyFivGXIv7shjheVDt1)
+
+
 
 ## Setup
 
@@ -54,3 +59,13 @@ then enter the command
 $ sudo ln -s $(which nodejs) /usr/local/bin/node
 ```
 This should solve the problem.
+
+## Usage
+
+* program supports four input file types: `.yml` `.yaml` `.ini` `.json`
+* program supports three output types: `plain` `diff` `json`
+* `$ gendiff before.json after.json` get diff with default output
+* `$ gendiff before.yml after.yml --format json` get full diff tree with JSON output
+* `-f | --format [type]` formating output to tree, json or plain, default is tree
+* `-h | --help` help page
+* `-V | --version` program version
