@@ -65,7 +65,7 @@ This should solve the problem.
 * program supports four input file types: `.yml` `.yaml` `.ini` `.json`
 * program supports three output types: `plain` `diff` `json`
 * `$ gendiff before.json after.json` get diff with default output
-* `$ gendiff before.yml after.yml --format json` get full diff tree with JSON output
+* `$ gendiff --format json before.yml after.yml ` get full diff tree with JSON output
 * `-f | --format [type]` formating output to tree, json or plain, default is tree
 * `-h | --help` help page
 * `-V | --version` program version
