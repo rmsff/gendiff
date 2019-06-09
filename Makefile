@@ -15,3 +15,6 @@ lint:
 
 asciinema:
 	asciinema rec
+
+test:
+	npm test

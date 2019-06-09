@@ -10,7 +10,7 @@ export default function (AST, type) {
       return diffRenderAST(AST);
     },
     get json() {
-      return JSON.stringify(AST);
+      return JSON.stringify(AST, null, 2);
     },
   };
   return types[type];

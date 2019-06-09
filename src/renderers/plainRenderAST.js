@@ -16,8 +16,11 @@ export default (ast) => {
     return line[status]();
   };
 
-  const getResult = (nodes, local = []) => Object.keys(nodes).reduce((acc, key) => {
-    const { children, value, status } = nodes[key];
+  const getResult = (nodes, local = []) => nodes.reduce((acc, node) => {
+    const {
+      key, children, value, status,
+    } = node;
+
     if (status === 'current') return acc;
     return children
       ? [...acc, getResult(children, [...local, key])]

@@ -1,1 +1,101 @@
-{"common":{"children":{"setting1":{"value":"Value 1","status":"current"},"setting2":{"value":"200","status":"remove"},"setting3":{"value":{"before":true,"after":{"key":"value"}},"status":"update"},"setting6":{"children":{"key":{"value":"value","status":"current"},"ops":{"value":"vops","status":"add"}}},"follow":{"value":false,"status":"add"},"setting4":{"value":"blah blah","status":"add"},"setting5":{"value":{"key5":"value5"},"status":"add"}}},"group1":{"children":{"baz":{"value":{"before":"bas","after":"bars"},"status":"update"},"foo":{"value":"bar","status":"current"},"nest":{"value":{"before":{"key":"value"},"after":"str"},"status":"update"}}},"group2":{"value":{"abc":"12345"},"status":"remove"},"group3":{"value":{"fee":"100500"},"status":"add"}}
+[
+  {
+    "key": "common",
+    "children": [
+      {
+        "key": "setting1",
+        "value": "Value 1",
+        "status": "current"
+      },
+      {
+        "key": "setting2",
+        "value": "200",
+        "status": "remove"
+      },
+      {
+        "key": "setting3",
+        "value": {
+          "before": true,
+          "after": {
+            "key": "value"
+          }
+        },
+        "status": "update"
+      },
+      {
+        "key": "setting6",
+        "children": [
+          {
+            "key": "key",
+            "value": "value",
+            "status": "current"
+          },
+          {
+            "key": "ops",
+            "value": "vops",
+            "status": "add"
+          }
+        ]
+      },
+      {
+        "key": "follow",
+        "value": false,
+        "status": "add"
+      },
+      {
+        "key": "setting4",
+        "value": "blah blah",
+        "status": "add"
+      },
+      {
+        "key": "setting5",
+        "value": {
+          "key5": "value5"
+        },
+        "status": "add"
+      }
+    ]
+  },
+  {
+    "key": "group1",
+    "children": [
+      {
+        "key": "baz",
+        "value": {
+          "before": "bas",
+          "after": "bars"
+        },
+        "status": "update"
+      },
+      {
+        "key": "foo",
+        "value": "bar",
+        "status": "current"
+      },
+      {
+        "key": "nest",
+        "value": {
+          "before": {
+            "key": "value"
+          },
+          "after": "str"
+        },
+        "status": "update"
+      }
+    ]
+  },
+  {
+    "key": "group2",
+    "value": {
+      "abc": "12345"
+    },
+    "status": "remove"
+  },
+  {
+    "key": "group3",
+    "value": {
+      "fee": "100500"
+    },
+    "status": "add"
+  }
+]

@@ -19,8 +19,10 @@ export default (ast) => {
     return line[status]();
   };
 
-  const getResult = (nodes, depth = 1) => Object.keys(nodes).map((key) => {
-    const { children, value, status } = nodes[key];
+  const getResult = (nodes, depth = 1) => nodes.map((node) => {
+    const {
+      key, children, value, status,
+    } = node;
     return children
       ? `${getIndent(depth + 1)}${key}: {\n${getResult(children, depth + 2).join('\n')}\n${getIndent(depth + 1)}}`
       : `${getIndent(depth)}${getLine(key, value, depth, status)}`;
