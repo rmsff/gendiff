@@ -1,5 +1,5 @@
 import fs from 'fs';
-import genDiff from '../src/index';
+import genDiff from '../src';
 
 const location = '__tests__/__fixtures__/';
 const expectedDiff = fs.readFileSync(`${location}expectedDiff.txt`, 'utf-8');

@@ -1,14 +1,16 @@
 
 import lodash from 'lodash';
 
-const buildAST = (firstFile, secondFile) => {
-  const keys = lodash.uniq(Object.keys(firstFile).concat(Object.keys(secondFile)), el => el.id);
+const buildAST = (firstData, secondData) => {
+  const keysFirst = Object.keys(firstData);
+  const keysSecond = Object.keys(secondData);
+  const commonKeys = lodash.uniq([...keysFirst, ...keysSecond]);
 
-  const AST = keys.reduce((acc, key) => {
-    const hasKeyFirst = lodash.has(firstFile, key);
-    const hasKeySecond = lodash.has(secondFile, key);
-    const valueFirst = firstFile[key];
-    const valueSecond = secondFile[key];
+  const AST = commonKeys.reduce((acc, key) => {
+    const hasKeyFirst = lodash.has(firstData, key);
+    const hasKeySecond = lodash.has(secondData, key);
+    const valueFirst = firstData[key];
+    const valueSecond = secondData[key];
     const hasChildrenFirst = typeof valueFirst === 'object';
     const hasChildrenSecond = typeof valueSecond === 'object';
 

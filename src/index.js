@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import parsers from './parsers';
+import parser from './parsers';
 import buildAST from './buildAST';
 import toString from './renderers/index';
 
-function getFile(fileLocation) {
-  const pathExtname = path.extname(fileLocation);
-  const file = fs.readFileSync(fileLocation, 'utf-8');
-  return parsers(file, pathExtname);
+function getFile(location) {
+  const extName = path.extname(location);
+  const data = fs.readFileSync(location, 'utf-8');
+  return parser(data, extName);
 }
 
 export default function (firstConfig, secondConfig, type) {
