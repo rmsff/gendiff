@@ -3,14 +3,19 @@
     "key": "common",
     "children": [
       {
+        "key": "follow",
+        "value": false,
+        "type": "added"
+      },
+      {
         "key": "setting1",
         "value": "Value 1",
-        "status": "current"
+        "type": "current"
       },
       {
         "key": "setting2",
         "value": "200",
-        "status": "remove"
+        "type": "removed"
       },
       {
         "key": "setting3",
@@ -20,7 +25,19 @@
             "key": "value"
           }
         },
-        "status": "update"
+        "type": "updated"
+      },
+      {
+        "key": "setting4",
+        "value": "blah blah",
+        "type": "added"
+      },
+      {
+        "key": "setting5",
+        "value": {
+          "key5": "value5"
+        },
+        "type": "added"
       },
       {
         "key": "setting6",
@@ -28,31 +45,14 @@
           {
             "key": "key",
             "value": "value",
-            "status": "current"
+            "type": "current"
           },
           {
             "key": "ops",
             "value": "vops",
-            "status": "add"
+            "type": "added"
           }
         ]
-      },
-      {
-        "key": "follow",
-        "value": false,
-        "status": "add"
-      },
-      {
-        "key": "setting4",
-        "value": "blah blah",
-        "status": "add"
-      },
-      {
-        "key": "setting5",
-        "value": {
-          "key5": "value5"
-        },
-        "status": "add"
       }
     ]
   },
@@ -65,12 +65,12 @@
           "before": "bas",
           "after": "bars"
         },
-        "status": "update"
+        "type": "updated"
       },
       {
         "key": "foo",
         "value": "bar",
-        "status": "current"
+        "type": "current"
       },
       {
         "key": "nest",
@@ -80,7 +80,7 @@
           },
           "after": "str"
         },
-        "status": "update"
+        "type": "updated"
       }
     ]
   },
@@ -89,13 +89,13 @@
     "value": {
       "abc": "12345"
     },
-    "status": "remove"
+    "type": "removed"
   },
   {
     "key": "group3",
     "value": {
       "fee": "100500"
     },
-    "status": "add"
+    "type": "added"
   }
 ]

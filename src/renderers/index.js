@@ -1,17 +1,11 @@
-import diffRenderAST from './diffRenderAST';
-import plainRenderAST from './plainRenderAST';
+import diffRenderAst from './diffRenderAst';
+import plainRenderAst from './plainRenderAst';
 
-export default function (AST, type) {
-  const types = {
-    get plain() {
-      return plainRenderAST(AST);
-    },
-    get diff() {
-      return diffRenderAST(AST);
-    },
-    get json() {
-      return JSON.stringify(AST, null, 2);
-    },
+export default function (ast, type) {
+  const outputTypes = {
+    plain: plainRenderAst,
+    diff: diffRenderAst,
+    json: arg => JSON.stringify(arg, null, 2),
   };
-  return types[type];
+  return outputTypes[type](ast);
 }
