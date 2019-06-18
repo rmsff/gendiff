@@ -73,7 +73,6 @@ This should solve the problem.
 
 ## Example
 
-```
 ### Tree output
 `$ gendiff before.json after.json`
 ```
