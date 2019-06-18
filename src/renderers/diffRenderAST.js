@@ -1,29 +1,26 @@
 import lodash from 'lodash';
 
 export default (ast) => {
-  const getIndent = depth => '  '.repeat(depth);
+  const tab = depth => '  '.repeat(depth);
 
   const stringify = (value, depth) => (lodash.isObject(value)
-    ? `{\n${Object.keys(value).map(key => `${getIndent(depth + 3)}${key}: ${value[key]}\n`)}${getIndent(depth + 1)}}` : value);
+    ? `{\n${Object.keys(value).map(key => `${tab(depth + 3)}${key}: ${value[key]}\n`)}${tab(depth + 1)}}` : value);
 
-  const getLine = (key, value, depth, type) => {
+  const getLine = (node, depth, render) => {
+    const {
+      key, value, type, valueBefore, valueAfter, children,
+    } = node;
     const line = {
-      added: () => `+ ${key}: ${stringify(value, depth)}`,
-      removed: () => `- ${key}: ${stringify(value, depth)}`,
-      current: () => `  ${key}: ${stringify(value, depth)}`,
-      updated: () => `- ${key}: ${stringify(value.before, depth)}\n${getIndent(depth)}+ ${key}: ${stringify(value.after, depth)}`,
+      added: () => [`+ ${key}: ${stringify(value, depth)}`],
+      removed: () => [`- ${key}: ${stringify(value, depth)}`],
+      current: () => [`  ${key}: ${stringify(value, depth)}`],
+      updated: () => [`- ${key}: ${stringify(valueBefore, depth)}`, `${tab(depth)}+ ${key}: ${stringify(valueAfter, depth)}`],
+      node: () => [`  ${key}: {\n${render(children, depth + 2).join('\n')}\n${tab(depth + 1)}}`],
     };
     return line[type]();
   };
+  const renderNode = (nodes, depth = 1) => nodes.map(node => `${tab(depth)}${getLine(node, depth, renderNode).join('\n')}`);
 
-  const getResult = (nodes, depth = 1) => nodes.map((node) => {
-    const {
-      key, children, value, type,
-    } = node;
-    return lodash.isObject(children)
-      ? `${getIndent(depth + 1)}${key}: {\n${getResult(children, depth + 2).join('\n')}\n${getIndent(depth + 1)}}`
-      : `${getIndent(depth)}${getLine(key, value, depth, type)}`;
-  });
-
-  return `{\n${(getResult(ast)).join('\n')}\n}`;
+  const result = lodash.flatten(renderNode(ast)).join('\n');
+  return `{\n${result}\n}`;
 };

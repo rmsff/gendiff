@@ -12,7 +12,7 @@ const nodeTypes = [
   },
   {
     check: (first, second, key) => lodash.isObject(first[key]) && lodash.isObject(second[key]),
-    make: (first, second, key, func) => ({ key, children: func(first[key], second[key]) }),
+    make: (first, second, key, func) => ({ key, type: 'node', children: func(first[key], second[key]) }),
   },
   {
     check: (first, second, key) => first[key] === second[key],
@@ -20,7 +20,9 @@ const nodeTypes = [
   },
   {
     check: (first, second, key) => first[key] !== second[key],
-    make: (first, second, key) => ({ key, value: { before: first[key], after: second[key] }, type: 'updated' }),
+    make: (first, second, key) => ({
+      key, valueBefore: first[key], valueAfter: second[key], type: 'updated',
+    }),
   },
 ];
 

@@ -1,6 +1,7 @@
 [
   {
     "key": "common",
+    "type": "node",
     "children": [
       {
         "key": "follow",
@@ -19,11 +20,9 @@
       },
       {
         "key": "setting3",
-        "value": {
-          "before": true,
-          "after": {
-            "key": "value"
-          }
+        "valueBefore": true,
+        "valueAfter": {
+          "key": "value"
         },
         "type": "updated"
       },
@@ -41,6 +40,7 @@
       },
       {
         "key": "setting6",
+        "type": "node",
         "children": [
           {
             "key": "key",
@@ -58,13 +58,12 @@
   },
   {
     "key": "group1",
+    "type": "node",
     "children": [
       {
         "key": "baz",
-        "value": {
-          "before": "bas",
-          "after": "bars"
-        },
+        "valueBefore": "bas",
+        "valueAfter": "bars",
         "type": "updated"
       },
       {
@@ -74,12 +73,10 @@
       },
       {
         "key": "nest",
-        "value": {
-          "before": {
-            "key": "value"
-          },
-          "after": "str"
+        "valueBefore": {
+          "key": "value"
         },
+        "valueAfter": "str",
         "type": "updated"
       }
     ]

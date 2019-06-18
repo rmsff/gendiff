@@ -13,31 +13,31 @@ This repository is created and maintained by a student of the Hexlet educational
 # Difference calculator
 step 1
 
-[![asciicast](https://asciinema.org/a/Sbx6g1k1cr1AtvIKjxQRQyvQd.png)](https://asciinema.org/a/Sbx6g1k1cr1AtvIKjxQRQyvQd)
+[![asciicast](https://asciinema.org/a/kUBAYadyYcnTCvUNBc1jmWINj.png)](https://asciinema.org/a/kUBAYadyYcnTCvUNBc1jmWINj)
 
 step 2
 
-[![asciicast](https://asciinema.org/a/7m6lM4bEcIXi10RchalqAHkwg.png)](https://asciinema.org/a/7m6lM4bEcIXi10RchalqAHkwg)
+[![asciicast](https://asciinema.org/a/aFbfPeO2RfEHu8Jld8jF4Bi4g.png)](https://asciinema.org/a/aFbfPeO2RfEHu8Jld8jF4Bi4g)
 
 step 3 
 
-[![asciicast](https://asciinema.org/a/Hijdg8YQtV6eHmeK7v8HvVJii.png)](https://asciinema.org/a/Hijdg8YQtV6eHmeK7v8HvVJii)
+[![asciicast](https://asciinema.org/a/BvFbN7cJtLtiU1OSFebeh4DOr.png)](https://asciinema.org/a/BvFbN7cJtLtiU1OSFebeh4DOr)
 
 step 4
 
-[![asciicast](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq.png)](https://asciinema.org/a/1SaFcR5v0ULY4ejaQl05v3Unq)
+[![asciicast](https://asciinema.org/a/EZ1nDm98JAbRCPnnAT6z4rBof.png)](https://asciinema.org/a/EZ1nDm98JAbRCPnnAT6z4rBof)
 
 step 5 
 
-[![asciicast](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl.png)](https://asciinema.org/a/7ycCL4pBj8xXTGjvHSAlc7ZPl)
+[![asciicast](https://asciinema.org/a/fuvntLEWGaV77taYGZ6i52k0D.png)](https://asciinema.org/a/fuvntLEWGaV77taYGZ6i52k0D)
 
 step 6 
 
-[![asciicast](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO.png)](https://asciinema.org/a/NC2yM83oGGzCcsLyMUQne8KLO)
+[![asciicast](https://asciinema.org/a/RVjWrCKzY1tg4aKUTfcufLGh7.png)](https://asciinema.org/a/RVjWrCKzY1tg4aKUTfcufLGh7)
 
 step 7
 
-[![asciicast](https://asciinema.org/a/3g6lAThyFivGXIv7shjheVDt1.png)](https://asciinema.org/a/3g6lAThyFivGXIv7shjheVDt1)
+[![asciicast](https://asciinema.org/a/eJkpXG8VAtffrLY88iW1yNCXx.png)](https://asciinema.org/a/eJkpXG8VAtffrLY88iW1yNCXx)
 
 
 
@@ -69,3 +69,82 @@ This should solve the problem.
 * `-f | --format [type]` formating output to tree, json or plain, default is tree
 * `-h | --help` help page
 * `-V | --version` program version
+
+
+## Example
+
+```
+### Tree output
+`$ gendiff before.json after.json`
+```
+{
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+    }
+  + group3: {
+        fee: 100500
+    }
+}
+```
+### Plain output
+`$ gendiff before.json after.json -f plain`
+```
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From complex value to 'str'
+Property 'group2' was removed
+Property 'group3' was added with complex value
+```
+### JSON output
+`$ gendiff before.json after.json -f json`
+```json
+[
+  {
+    "key": "group1",
+    "type": "nest",
+    "children": [
+      {
+        "key": "baz",
+        "type": "changed",
+        "oldValue": "bas",
+        "newValue": "bars"
+      },
+      {
+        "key": "foo",
+        "type": "unchanged",
+        "value": "bar"
+      },
+      {
+        "key": "nest",
+        "type": "changed",
+        "oldValue": {
+          "key": "value"
+        },
+        "newValue": "str"
+      }
+    ]
+  },
+  {
+    "key": "group2",
+    "type": "deleted",
+    "value": {
+      "abc": "12345"
+    }
+  },
+  {
+    "key": "group3",
+    "type": "added",
+    "value": {
+      "fee": "100500"
+    }
+  }
+]
+```

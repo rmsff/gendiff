@@ -1,30 +1,28 @@
 import lodash from 'lodash';
 
 export default (ast) => {
-  const getLine = (value, depth, type) => {
+  const getLine = (node, depth, render) => {
+    const {
+      key, value, type, valueBefore, valueAfter, children,
+    } = node;
+
     const stringify = (arg) => {
-      if (lodash.isObject(arg)) return '[complex value]';
-      if (lodash.isString(arg)) return `'${arg}'`;
-      return arg;
+      const typesDispatcher = { string: `'${arg}'`, object: '[complex value]' };
+      return typesDispatcher[typeof arg] || arg;
     };
-    const local = depth.join('.');
+
+    const local = lodash.flatten([depth, key]).join('.');
     const line = {
       added: () => `Property '${local}' was added with value: ${stringify(value)}`,
       removed: () => `Property '${local}' was removed`,
-      updated: () => `Property '${local}' was updated. From ${stringify(value.before)} to ${stringify(value.after)}`,
+      updated: () => `Property '${local}' was updated. From ${stringify(valueBefore)} to ${stringify(valueAfter)}`,
+      node: () => render(children, local),
     };
     return line[type]();
   };
 
-  const getResult = (nodes, local = []) => nodes.reduce((acc, node) => {
-    const {
-      key, children, value, type,
-    } = node;
-    if (type === 'current') return acc;
-    return lodash.isObject(children)
-      ? [...acc, getResult(children, [...local, key])]
-      : [...acc, getLine(value, [...local, key], type)];
-  }, []);
+  const getResult = (nodes, local = []) => nodes.filter(({ type }) => type !== 'current')
+    .map(node => getLine(node, local, getResult));
 
   return lodash.flatten(getResult(ast)).join('\n');
 };
