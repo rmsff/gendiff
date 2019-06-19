@@ -1,5 +1,5 @@
-import diffRenderAst from './diffRenderAst';
-import plainRenderAst from './plainRenderAst';
+import diffRenderAst from './diffRender';
+import plainRenderAst from './plainRender';
 
 export default function (ast, type) {
   const outputTypes = {

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import parse from './parsers';
-import buildAst from './buildAst';
+import buildAst from './build-ast';
 import toString from './renderers';
 
 function getData(directory) {
