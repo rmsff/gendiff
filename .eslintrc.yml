@@ -8,4 +8,5 @@ extends:
   - 'airbnb-base'
 rules:
   no-console: 0
-  import/no-unresolved": off
+  import/no-unresolved: off
+  import/extensions: off
