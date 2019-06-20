@@ -95,15 +95,15 @@ This should solve the problem.
 }
 ```
 ### Plain output
-`$ gendiff before.json after.json -f plain`
+`$ gendiff --format plain before.json after.json `
 ```
 Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From complex value to 'str'
 Property 'group2' was removed
-Property 'group3' was added with complex value
+Property 'group3' was added with [complex value]
 ```
 ### JSON output
-`$ gendiff before.json after.json -f json`
+`$ gendiff --format json before.json after.json`
 ```json
 [
   {
@@ -112,22 +112,22 @@ Property 'group3' was added with complex value
     "children": [
       {
         "key": "baz",
-        "type": "changed",
-        "oldValue": "bas",
-        "newValue": "bars"
+        "type": "updated",
+        "valueBefore": "bas",
+        "valueAfter": "bars"
       },
       {
         "key": "foo",
-        "type": "unchanged",
-        "value": "bar"
+        "value": "bar",
+        "type": "current"
       },
       {
         "key": "nest",
-        "type": "changed",
-        "oldValue": {
+        "type": "updated",
+        "valueBefore": {
           "key": "value"
         },
-        "newValue": "str"
+        "valueAfter": "str"
       }
     ]
   },
