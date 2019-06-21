@@ -11,7 +11,7 @@
       {
         "key": "setting1",
         "value": "Value 1",
-        "type": "current"
+        "type": "notUpdated"
       },
       {
         "key": "setting2",
@@ -45,7 +45,7 @@
           {
             "key": "key",
             "value": "value",
-            "type": "current"
+            "type": "notUpdated"
           },
           {
             "key": "ops",
@@ -69,7 +69,7 @@
       {
         "key": "foo",
         "value": "bar",
-        "type": "current"
+        "type": "notUpdated"
       },
       {
         "key": "nest",

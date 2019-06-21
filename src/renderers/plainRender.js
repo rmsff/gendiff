@@ -11,7 +11,7 @@ export default (ast) => {
       return typesDispatcher[typeof arg] || arg;
     };
 
-    const local = lodash.flatten([depth, key]).join('.');
+    const local = lodash.concat(depth, key).join('.');
     const line = {
       added: () => `Property '${local}' was added with value: ${stringify(value)}`,
       removed: () => `Property '${local}' was removed`,
@@ -21,7 +21,8 @@ export default (ast) => {
     return line[type]();
   };
 
-  const getResult = (nodes, local = []) => nodes.filter(({ type }) => type !== 'current')
+  const getResult = (nodes, local = []) => nodes
+    .filter(({ type }) => type !== 'notUpdated')
     .map(node => getLine(node, local, getResult));
 
   return lodash.flatten(getResult(ast)).join('\n');
