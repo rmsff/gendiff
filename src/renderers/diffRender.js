@@ -13,7 +13,7 @@ export default (ast) => {
     const line = {
       added: () => `+ ${key}: ${stringify(value, depth)}`,
       removed: () => `- ${key}: ${stringify(value, depth)}`,
-      notUpdated: () => `  ${key}: ${stringify(value, depth)}`,
+      unchanged: () => `  ${key}: ${stringify(value, depth)}`,
       updated: () => [`- ${key}: ${stringify(valueBefore, depth)}`, `${getTab(depth)}+ ${key}: ${stringify(valueAfter, depth)}`].join('\n'),
       node: () => `  ${key}: {\n${render(children, depth + 2).join('\n')}\n${getTab(depth + 1)}}`,
     };

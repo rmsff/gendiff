@@ -119,7 +119,7 @@ Property 'group3' was added with [complex value]
       {
         "key": "foo",
         "value": "bar",
-        "type": "notUpdated"
+        "type": "unchanged"
       },
       {
         "key": "nest",

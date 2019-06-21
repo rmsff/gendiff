@@ -22,7 +22,7 @@ export default (ast) => {
   };
 
   const getResult = (nodes, local = []) => nodes
-    .filter(({ type }) => type !== 'notUpdated')
+    .filter(({ type }) => type !== 'unchanged')
     .map(node => getLine(node, local, getResult));
 
   return lodash.flatten(getResult(ast)).join('\n');

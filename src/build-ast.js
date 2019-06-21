@@ -16,7 +16,7 @@ const nodeTypes = [
   },
   {
     check: (first, second, key) => first[key] === second[key],
-    make: (first, second, key) => ({ key, value: first[key], type: 'notUpdated' }),
+    make: (first, second, key) => ({ key, value: first[key], type: 'unchanged' }),
   },
   {
     check: (first, second, key) => first[key] !== second[key],
