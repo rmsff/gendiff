@@ -1,11 +1,13 @@
-import diffRenderAst from './diffRender';
-import plainRenderAst from './plainRender';
+import diff from './diffRender';
+import plain from './plainRender';
 
 export default function (ast, type) {
   const outputTypes = {
-    plain: plainRenderAst,
-    diff: diffRenderAst,
+    plain,
+    diff,
     json: arg => JSON.stringify(arg, null, 2),
   };
-  return outputTypes[type](ast);
+  const result = outputTypes[type];
+  if (result) return result(ast);
+  throw new Error((`gendiff unsupported output type '${type}'`));
 }

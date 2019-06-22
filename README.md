@@ -1,4 +1,4 @@
-# project-lvl1-s475
+# Difference calculator
 
 <a href="https://codeclimate.com/github/serikoff/project-lvl2-s475/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9c52808aa4310e5db39/maintainability" /></a>
 [![Build Status](https://travis-ci.org/serikoff/project-lvl2-s475.svg?branch=master)](https://travis-ci.org/serikoff/project-lvl2-s475)
@@ -9,37 +9,6 @@
 This repository is created and maintained by a student of the Hexlet educational project community. Is a utility for finding differences in configuration files. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=nodejs-package).
 
 ##
-
-# Difference calculator
-step 1
-
-[![asciicast](https://asciinema.org/a/kUBAYadyYcnTCvUNBc1jmWINj.png)](https://asciinema.org/a/kUBAYadyYcnTCvUNBc1jmWINj)
-
-step 2
-
-[![asciicast](https://asciinema.org/a/aFbfPeO2RfEHu8Jld8jF4Bi4g.png)](https://asciinema.org/a/aFbfPeO2RfEHu8Jld8jF4Bi4g)
-
-step 3 
-
-[![asciicast](https://asciinema.org/a/BvFbN7cJtLtiU1OSFebeh4DOr.png)](https://asciinema.org/a/BvFbN7cJtLtiU1OSFebeh4DOr)
-
-step 4
-
-[![asciicast](https://asciinema.org/a/EZ1nDm98JAbRCPnnAT6z4rBof.png)](https://asciinema.org/a/EZ1nDm98JAbRCPnnAT6z4rBof)
-
-step 5 
-
-[![asciicast](https://asciinema.org/a/fuvntLEWGaV77taYGZ6i52k0D.png)](https://asciinema.org/a/fuvntLEWGaV77taYGZ6i52k0D)
-
-step 6 
-
-[![asciicast](https://asciinema.org/a/RVjWrCKzY1tg4aKUTfcufLGh7.png)](https://asciinema.org/a/RVjWrCKzY1tg4aKUTfcufLGh7)
-
-step 7
-
-[![asciicast](https://asciinema.org/a/eJkpXG8VAtffrLY88iW1yNCXx.png)](https://asciinema.org/a/eJkpXG8VAtffrLY88iW1yNCXx)
-
-
 
 ## Setup
 
@@ -62,7 +31,7 @@ This should solve the problem.
 
 ## Usage
 
-* program supports four input file types: `.yml` `.yaml` `.ini` `.json`
+* program supports four input file types: `.yml` `.ini` `.json`
 * program supports three output types: `plain` `diff` `json`
 * `$ gendiff before.json after.json` get diff with default output
 * `$ gendiff --format json before.yml after.yml ` get full diff tree with JSON output
