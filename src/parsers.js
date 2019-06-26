@@ -7,7 +7,10 @@ export default (data, extName) => {
     '.yml': yaml.safeLoad,
     '.ini': ini.parse,
   };
-  const result = parserSelection[extName];
-  if (result) return result(data);
-  throw new Error((`gendiff unsupported extension '${extName}'`));
+
+  try {
+    return parserSelection[extName](data);
+  } catch {
+    throw new Error(`gendiff unsupported extension '${extName}'`);
+  }
 };

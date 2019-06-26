@@ -7,7 +7,10 @@ export default function (ast, type) {
     diff,
     json: arg => JSON.stringify(arg, null, 2),
   };
-  const result = outputTypes[type];
-  if (result) return result(ast);
-  throw new Error((`gendiff unsupported output type '${type}'`));
+
+  try {
+    return outputTypes[type](ast);
+  } catch {
+    throw new Error(`gendiff unsupported output type '${type}'`);
+  }
 }
