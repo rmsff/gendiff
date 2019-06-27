@@ -1,7 +1,7 @@
 # Difference calculator
 
-<a href="https://codeclimate.com/github/serikoff/project-lvl2-s475/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9c52808aa4310e5db39/maintainability" /></a>
-[![Build Status](https://travis-ci.org/serikoff/project-lvl2-s475.svg?branch=master)](https://travis-ci.org/serikoff/project-lvl2-s475)
+<a href="https://codeclimate.com/github/serikoff/gendiff/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9c52808aa4310e5db39/maintainability" /></a>
+[![Build Status](https://travis-ci.org/serikoff/gendiff.svg?branch=master)](https://travis-ci.org/serikoff/gendiff)
 
 ##
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=nodejs-package)
